@@ -14,7 +14,6 @@ import { IsLoggedUserGuard } from './guards/is-logged-user.guard';
 
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
-// import { HeaderComponent } from './components/header/header.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'auth', pathMatch: 'full' },
@@ -25,28 +24,28 @@ const routes: Routes = [
   },
   {
     path: 'client',
-    loadChildren: () => import('./modules/user-client/user-client.module')
+    loadChildren: () => import('./modules/clients/user-client/user-client.module')
       .then(module => module.UserClientModule),
     canActivate: [IsLoggedUserGuard]
   },
   {
     path: 'content-client',
-    loadChildren: () => import('./modules/content-client/content-client.module')
+    loadChildren: () => import('./modules/clients/content-client/content-client.module')
       .then(module => module.ContentClientModule)
   },
   {
     path: 'accounting-client',
-    loadChildren: () => import('./modules/accounting-client/accounting-client.module')
+    loadChildren: () => import('./modules/clients/accounting-client/accounting-client.module')
       .then(module => module.AccountingClientModule)
   },
   {
     path: 'technical-client',
-    loadChildren: () => import('./modules/technical-client/technical-client.module')
+    loadChildren: () => import('./modules/clients/technical-client/technical-client.module')
       .then(module => module.TechnicalClientModule)
   },
   {
     path: 'user-support-client',
-    loadChildren: () => import('./modules/user-support-client/user-support-client.module')
+    loadChildren: () => import('./modules/clients/user-support-client/user-support-client.module')
       .then(module => module.UserSupportClientModule)
   },
   { path: '**', component: NotFoundComponent }
@@ -54,8 +53,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent,
-    // HeaderComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,

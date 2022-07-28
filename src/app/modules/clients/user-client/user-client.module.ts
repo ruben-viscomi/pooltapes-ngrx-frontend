@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
-import { HeaderModule } from '../header/header.module';
+import { HeaderModule } from '../../header/header.module';
 
 import { UserClientComponent } from './user-client.component';
 import { HomeDashComponent } from './home-dash/home-dash.component';

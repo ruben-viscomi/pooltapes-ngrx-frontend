@@ -2,17 +2,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
-import { HeaderModule } from '../header/header.module';
+import { HeaderModule } from '../../header/header.module';
 
-import { AccountingClientComponent } from './accounting-client.component';
+import { UserSupportClientComponent } from './user-support-client.component';
 
 const routes: Routes = [
-  { path: '', component: AccountingClientComponent }
+  { path: '', component: UserSupportClientComponent }
 ]
 
 @NgModule({
   declarations: [
-    AccountingClientComponent
+    UserSupportClientComponent
   ],
   imports: [
     CommonModule,
@@ -23,4 +23,4 @@ const routes: Routes = [
     RouterModule
   ]
 })
-export class AccountingClientModule { }
+export class UserSupportClientModule { }

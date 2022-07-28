@@ -1,4 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: plus-jakarta-sans;
+  src: url("assets/fonts/PlusJakartaSans-VariableFont_wght.ttf");
+}
+
 :root {
   --bg: #03080d;
   --bg-light: #091826;
@@ -12,13 +17,16 @@
   --logo-fill-accent: linear-gradient(45deg, var(--accent-dark) 0%, var(--accent) 100%);
   --font: plus-jakarta-sans;
   --gold: #ffd700;
+  --dark-white: #bbb;
 }
 
 * {
   box-sizing: border-box;
+  font-family: var(--font);
 }
 
 body {
+  /* TODO: remove 'overflow: scroll;' after dev */
   overflow: scroll;
   background-color: var(--bg);
 }
@@ -26,4 +34,26 @@ body {
 img, svg {
   pointer-events: none;
   user-select: none;
+}
+
+
+/* Global Buttons */
+.header-nav-button {
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 0 4pt;
+  padding: 1em;
+  background-color: transparent;
+  border: none;
+  border-radius: .5em;
+  color: var(--dark-white);
+  transition: color .2s, background-color .2s;
+}
+.header-nav-button:hover {
+  color: #fff;
+}
+.header-nav-button.active > label.header-nav-button-label {
+  background: var(--logo-fill);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

@@ -42,7 +42,6 @@ const routes: Routes = [
   exports: [
     AuthComponent,
     RouterModule
-  ],
-  providers: [AuthService]
+  ]
 })
 export class AuthModule { }
