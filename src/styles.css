@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --bg: #03080d;
+  --bg-light: #091826;
+  --main: #00aeef;
+  --main-med: #2186d9;
+  --main-dark: #1c76bd;
+  --accent: #c9002f;
+  --accent-med: #b8002a;
+  --accent-dark: #a60026;
+  --logo-fill: linear-gradient(45deg, var(--main-dark) 0%, var(--main) 100%);
+  --logo-fill-accent: linear-gradient(45deg, var(--accent-dark) 0%, var(--accent) 100%);
+  --font: plus-jakarta-sans;
+  --gold: #ffd700;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow: scroll;
+  background-color: var(--bg);
+}
+
+img, svg {
+  pointer-events: none;
+  user-select: none;
+}

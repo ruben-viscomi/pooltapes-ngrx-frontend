@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
+import { HeaderModule } from '../header/header.module';
+
 import { UserSupportClientComponent } from './user-support-client.component';
 
 const routes: Routes = [
@@ -14,7 +16,8 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    HeaderModule
   ],
   exports: [
     RouterModule
