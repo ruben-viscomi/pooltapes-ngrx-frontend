@@ -63,7 +63,7 @@ const routes: Routes = [
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     // ↓ NOTE: always configure (forRoot()) this module the last.
     RouterModule.forRoot(routes),
-    // EffectsModule.forRoot([])
+    EffectsModule.forRoot([])
   ],
   providers: [],
   bootstrap: [AppComponent]

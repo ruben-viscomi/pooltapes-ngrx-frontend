@@ -12,6 +12,8 @@ import { UserSignupComponent } from './user-signup/user-signup.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 
 import { AuthService } from './auth.service';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from './auth.effects';
 
 const routes: Routes = [
   { path: '', redirectTo: 'user', pathMatch: 'full' },
@@ -37,7 +39,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     RouterModule.forChild(routes),
-    StoreModule.forFeature(fromAuth.authFeatureKey, fromAuth.reducer)
+    StoreModule.forFeature(fromAuth.authFeatureKey, fromAuth.reducer),
+    EffectsModule.forFeature([AuthEffects])
   ],
   exports: [
     AuthComponent,

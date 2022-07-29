@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Observable, tap, catchError, throwError } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 import { State } from '../../reducers';
-import { adminLogin, userLogin } from './auth.actions'
+import { adminLoginSuccess, userLoginSuccess } from './auth.actions'
 
 import { User, Admin } from './interfaces';
 import { AdminLoginDto, UserLoginDto } from './dto';
@@ -26,18 +27,17 @@ export class AuthService {
   constructor(private readonly http: HttpClient,
               private readonly store: Store<State>,
               private readonly router: Router) {
-    this.handshake().pipe(
-      tap((authenticated: (Admin | User)) => {
-        if ((<Admin>authenticated).role !== undefined) {
-          this.store.dispatch(adminLogin(<Admin>authenticated));
-          this.redirectToAdminClient(<Admin>authenticated);
-        }
-        else {
-          this.store.dispatch(userLogin(<User>authenticated));
-          this.redirectToUserClient();
-        }
+    const handshake$: Subscription = this.handshake().pipe(
+      tap((authenticated: Admin | User) => {
+        if((<Admin>authenticated).role !== undefined)
+          this.store.dispatch(adminLoginSuccess({ admin: <Admin>authenticated }));
+        else
+          this.store.dispatch(userLoginSuccess({ user: <User>authenticated }));
       })
-    ).subscribe({ error: () => console.log('not logged in') });
+    ).subscribe({
+      error: (err: string) => console.log(err),
+      complete: () => handshake$.unsubscribe()
+    });
   }
 
   adminLogin(credentials: AdminLoginDto): Observable<Admin> {
@@ -62,6 +62,10 @@ export class AuthService {
 
   redirectToAdminClient(admin: Admin): void {
     this.router.navigateByUrl(adminClientRoutes[admin.role]);
+  }
+
+  redirectToIndex(): void {
+    this.router.navigateByUrl('/');
   }
 
 }

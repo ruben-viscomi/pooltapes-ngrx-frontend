@@ -20,7 +20,7 @@ export const initialState: State = {
 
 export const reducer = createReducer(
   initialState,
-  on(AuthActions.userLogin, (state, user) => ({ info: user, type: AccountTypes.USER })),
-  on(AuthActions.adminLogin, (state, admin) => ({ info: admin, type: AccountTypes.ADMIN })),
-  on(AuthActions.logout, (state) => initialState)
+  on(AuthActions.userLoginSuccess, (state, { user }) => ({ info: user, type: AccountTypes.USER })),
+  on(AuthActions.adminLoginSuccess, (state, { admin }) => ({ info: admin, type: AccountTypes.ADMIN })),
+  on(AuthActions.logoutSuccess, (state) => initialState)
 );
