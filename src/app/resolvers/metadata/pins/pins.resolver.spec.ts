@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DashResolver } from './dash.resolver';
+import { PinsResolver } from './pins.resolver';
 
-describe('DashResolver', () => {
-  let resolver: DashResolver;
+describe('PinsResolver', () => {
+  let resolver: PinsResolver;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    resolver = TestBed.inject(DashResolver);
+    resolver = TestBed.inject(PinsResolver);
   });
 
   it('should be created', () => {

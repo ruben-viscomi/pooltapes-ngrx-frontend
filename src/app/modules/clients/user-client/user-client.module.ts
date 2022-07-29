@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { HeaderModule } from '../../header/header.module';
 
-import { DashResolver } from './resolvers/dash.resolver';
+import { CategoriesResolver, FavoritesResolver, PinsResolver } from 'src/app/resolvers/metadata';
 
 import { UserClientComponent } from './user-client.component';
 import { DashComponent } from './components/dash/dash.component';
@@ -13,10 +13,10 @@ import { FavoritesComponent } from './components/favorites/favorites.component';
 const routes: Routes = [
   { path: '', component: UserClientComponent, children: [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
-    { path: 'home', component: DashComponent, resolve: { dash: DashResolver } },
-    { path: 'movies', component: DashComponent, resolve: { dash: DashResolver } },
-    { path: 'series', component: DashComponent, resolve: { dash: DashResolver } },
-    { path: 'favorites', component: FavoritesComponent }
+    { path: 'home', component: DashComponent, resolve: { pins: PinsResolver, categories: CategoriesResolver } },
+    { path: 'movies', component: DashComponent, resolve: { pins: PinsResolver, categories: CategoriesResolver } },
+    { path: 'series', component: DashComponent, resolve: { pins: PinsResolver, categories: CategoriesResolver } },
+    { path: 'favorites', component: FavoritesComponent, resolve: { favorites: FavoritesResolver } }
   ] }
 ];
 

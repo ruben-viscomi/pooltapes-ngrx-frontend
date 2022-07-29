@@ -3,8 +3,8 @@ import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree, Rout
 import { Store } from '@ngrx/store';
 import { Observable, tap, catchError, throwError } from 'rxjs';
 
-import { State } from '../reducers';
-import { isLoggedUser } from '../modules/auth/auth.selectors';
+import { State } from 'src/app/reducers';
+import { isLoggedUser } from 'src/app/modules/auth/auth.selectors';
 
 @Injectable({
   providedIn: 'root'
