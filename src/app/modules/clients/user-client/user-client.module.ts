@@ -4,29 +4,27 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { HeaderModule } from '../../header/header.module';
 
+import { DashResolver } from './resolvers/dash.resolver';
+
 import { UserClientComponent } from './user-client.component';
-import { HomeDashComponent } from './home-dash/home-dash.component';
-import { MoviesDashComponent } from './movies-dash/movies-dash.component';
-import { SeriesDashComponent } from './series-dash/series-dash.component';
-import { FavoritesDashComponent } from './favorites-dash/favorites-dash.component';
+import { DashComponent } from './components/dash/dash.component';
+import { FavoritesComponent } from './components/favorites/favorites.component';
 
 const routes: Routes = [
   { path: '', component: UserClientComponent, children: [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
-    { path: 'home', component: HomeDashComponent },
-    { path: 'movies', component: MoviesDashComponent },
-    { path: 'series', component: SeriesDashComponent },
-    { path: 'favorites', component: FavoritesDashComponent }
+    { path: 'home', component: DashComponent, resolve: { dash: DashResolver } },
+    { path: 'movies', component: DashComponent, resolve: { dash: DashResolver } },
+    { path: 'series', component: DashComponent, resolve: { dash: DashResolver } },
+    { path: 'favorites', component: FavoritesComponent }
   ] }
 ];
 
 @NgModule({
   declarations: [
     UserClientComponent,
-    HomeDashComponent,
-    MoviesDashComponent,
-    SeriesDashComponent,
-    FavoritesDashComponent
+    DashComponent,
+    FavoritesComponent
   ],
   imports: [
     CommonModule,

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SeriesDashComponent } from './series-dash.component';
+import { FavoritesComponent } from './favorites.component';
 
-describe('SeriesDashComponent', () => {
-  let component: SeriesDashComponent;
-  let fixture: ComponentFixture<SeriesDashComponent>;
+describe('FavoritesComponent', () => {
+  let component: FavoritesComponent;
+  let fixture: ComponentFixture<FavoritesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SeriesDashComponent ]
+      declarations: [ FavoritesComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SeriesDashComponent);
+    fixture = TestBed.createComponent(FavoritesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
