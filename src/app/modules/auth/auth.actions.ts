@@ -1,10 +1,10 @@
 import { createAction, props } from '@ngrx/store';
 
 import { User, Admin } from './interfaces';
-import { UserLoginDto, AdminLoginDto } from './dto';
+import { UserLoginDto, UserSignupDto, AdminLoginDto } from './dto';
 
 export const userLogin = createAction(
-  '[User Login] Login',
+  '[User Login] Login Attempt',
   props<{ credentials: UserLoginDto }>()
 );
 
@@ -18,23 +18,37 @@ export const userLoginFail = createAction(
   props<{ error: string }>()
 );
 
+export const userSignup = createAction(
+  '[User Signup] Signup Attempt',
+  props<{ userInfo: UserSignupDto }>()
+);
+
+export const userSignupSuccess = createAction(
+  '[User Signup] Signup Success'
+);
+
+export const userSignupFail = createAction(
+  '[User Signup] Signup Fail',
+  props<{ error: string }>()
+);
+
 export const adminLogin = createAction(
-  '[Admin Login] Login',
+  '[Admin Login] Login Attempt',
   props<{ credentials: AdminLoginDto }>()
-)
+);
 
 export const adminLoginSuccess = createAction(
   '[Admin Login] Login Success',
   props<{ admin: Admin }>()
-)
+);
 
 export const adminLoginFail = createAction(
   '[Admin Login] Login Fail',
   props<{ error: string }>()
-)
+);
 
 export const logout = createAction(
-  '[Auth Logout] Logout'
+  '[Auth Logout] Logout Attempt'
 );
 
 export const logoutSuccess = createAction(
@@ -43,4 +57,4 @@ export const logoutSuccess = createAction(
 
 export const logoutFail = createAction(
   '[Auth Logout] Logout Fail'
-)
+);

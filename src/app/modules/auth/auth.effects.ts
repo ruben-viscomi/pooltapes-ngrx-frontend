@@ -26,6 +26,16 @@ export class AuthEffects {
     tap(() => this.auth.redirectToUserClient())
   ), { dispatch: false });
 
+  attemptUserSignup$ = createEffect(() => this.actions$.pipe(
+    ofType(AuthActions.userSignup),
+    exhaustMap(action => (
+      this.auth.userSignup(action.userInfo).pipe(
+        map(() => AuthActions.userSignupSuccess()),
+        catchError((error: string) => of(AuthActions.userSignupFail({ error })))
+      )
+    ))
+  ));
+
   attemptAdminLogin$ = createEffect(() => this.actions$.pipe(
     ofType(AuthActions.adminLogin),
     exhaustMap(action => (

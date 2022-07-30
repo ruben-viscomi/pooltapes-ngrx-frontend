@@ -1,1 +1,19 @@
-<p>user-signup works!</p>
+<div class="sign-container">
+  <img class="sign-page-logo" src="assets/logos/pooltapes-color.svg" alt="pooltapes logo">
+
+  <form class="sign-form" [formGroup]="signupForm" (submit)="onSignup()">
+    <input class="sign-form-input" type="text" placeholder="Full Name..." formControlName="name">
+    <input class="sign-form-input" type="email" placeholder="Email..." formControlName="mail">
+    <input class="sign-form-input" type="password" placeholder="Password..." formControlName="password">
+    <select class="sign-form-input" formControlName="nationality">
+      <option value="" disabled selected>Nationality...</option>
+      <option value="italy">Italy</option>
+      <option value="united states">United States</option>
+    </select>
+    <input class="sign-form-input" type="text" placeholder="Address..." formControlName="address">
+    <input class="sign-form-input" type="date" placeholder="Birth Date..." formControlName="birthDate">
+    <button class="sign-form-submit" type="submit" [disabled]="!signupForm.valid">Sign-Up</button>
+  </form>
+
+  <p class="text form-footer">Already have an account? <a class="accent-link" routerLink="/auth/user/login">Login</a></p>
+</div>

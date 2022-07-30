@@ -1,10 +1,15 @@
 <div class="sign-container">
-  <img class="sign-page-logo" src="assets/logos/pooltapes-color.svg" alt="pooltapes logo">
+  <div class="admin-logo-container">
+    <span class="admin-logo">
+      <img class="sign-page-logo" src="assets/logos/pooltapes-color.svg" alt="pooltapes logo">
+      <span class="admin-logo-text">Admin</span>
+    </span>
+  </div>
 
   <form class="sign-form" [formGroup]="adminLoginForm" (submit)="onLogin()">
     <input class="sign-form-input" type="text" placeholder="Intern Id..." formControlName="internNum">
     <input class="sign-form-input" type="password" placeholder="Password..." formControlName="password">
-    <button class="sign-form-submit" type="submit" [disabled]="!adminLoginForm.valid">login</button>
+    <button class="sign-form-submit" type="submit" [disabled]="!adminLoginForm.valid">Login</button>
   </form>
 </div>
 

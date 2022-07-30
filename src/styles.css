@@ -37,13 +37,37 @@ img, svg {
 }
 
 .link {
-  color: var(--main-dark);
+  font-weight: bold;
+  position: relative;
+  color: var(--main);
+  background: var(--logo-fill);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+}
+.link::before {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  display: block;
+  content: close-quote;
+  background-color: var(--main);
+  background: var(--logo-fill);
+  height: 2px;
+  width: 0;
+  transition: width .2s;
+}
+.link:hover::before {
+  width: 100%;
 }
 
 .accent-link {
   font-weight: bold;
   position: relative;
   color: var(--accent);
+  background: var(--logo-fill-accent);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   text-decoration: none;
 }
 .accent-link::before {
@@ -53,6 +77,7 @@ img, svg {
   display: block;
   content: close-quote;
   background-color: var(--accent);
+  background: var(--logo-fill-accent);
   height: 2px;
   width: 0;
   transition: width .2s;
@@ -88,7 +113,7 @@ img, svg {
 
 .sign-container {
   width: 50%;
-  margin: 10% auto 0 auto;
+  margin: 5% auto 0 auto;
 }
 
 .form-footer {

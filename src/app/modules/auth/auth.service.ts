@@ -9,7 +9,7 @@ import { State } from '../../reducers';
 import { adminLoginSuccess, userLoginSuccess } from './auth.actions'
 
 import { User, Admin } from './interfaces';
-import { AdminLoginDto, UserLoginDto } from './dto';
+import { AdminLoginDto, UserLoginDto, UserSignupDto } from './dto';
 import { Roles } from './enums';
 
 const adminClientRoutes: Array<string> = [
@@ -46,6 +46,10 @@ export class AuthService {
 
   userLogin(credentials: UserLoginDto): Observable<User> {
     return this.http.post<User>('http://localhost:3010/users/login', credentials, { withCredentials: true });
+  }
+
+  userSignup(info: UserSignupDto): Observable<any> {
+    return this.http.post<any>('http://localhost:3010/users/sign-up', info, { withCredentials: true });
   }
 
   logout(): Observable<void> {

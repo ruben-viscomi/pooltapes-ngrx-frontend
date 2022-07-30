@@ -1,0 +1,28 @@
+.admin-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 32px 0;
+}
+
+.admin-logo {
+  display: inline-block;
+  position: relative;
+}
+
+.admin-logo-text {
+  user-select: none;
+  pointer-events: none;
+  display: block;
+  position: absolute;
+  top: -6px;
+  right: 0;
+  background: var(--logo-fill-accent);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Override Global Rule */
+.sign-page-logo {
+  margin: 0;
+}

@@ -16,9 +16,7 @@ import { Admin } from '../interfaces';
 export class AdminLoginComponent implements OnInit {
 
   adminLoginForm: FormGroup = new FormGroup({
-    internNum: new FormControl(undefined, [
-      Validators.required
-    ]),
+    internNum: new FormControl(undefined, [Validators.required]),
     password: new FormControl(undefined, [
       Validators.required,
       Validators.minLength(8),
