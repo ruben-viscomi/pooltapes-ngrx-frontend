@@ -1,7 +1,15 @@
-<form (ngSubmit)="onLogin(loginForm.value)" #loginForm="ngForm">
-  <input type="email" name="mail" placeholder="Email..." ngModel>
-  <input type="password" name="password" placeholder="Password..." ngModel>
-  <input type="submit" value="login">
-</form>
+<div class="sign-container">
+  <img class="sign-page-logo" src="assets/logos/pooltapes-color.svg" alt="pooltapes logo">
 
-<p>To access as Administrators <a routerLink="/auth/admin/login">click here</a></p>
+  <form class="sign-form" [formGroup]="userLoginForm" (submit)="onLogin()">
+    <input class="sign-form-input" type="email" placeholder="Email..." formControlName="mail">
+    <input class="sign-form-input" type="password" placeholder="Password..." formControlName="password">
+    <button class="sign-form-submit" type="submit" [disabled]="!userLoginForm.valid">login</button>
+  </form>
+
+  <p class="text form-footer">Don't have an account yet? <a class="accent-link" routerLink="/auth/user/signup">Sign-Up</a></p>
+</div>
+
+<footer class="footer">
+  <p class="footer-text">For administration <a class="link" routerLink="/auth/admin/login">click here</a></p>
+</footer>

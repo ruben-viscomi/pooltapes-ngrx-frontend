@@ -1,5 +1,13 @@
-<form (ngSubmit)="onLogin(loginForm.value)" #loginForm="ngForm">
-  <input type="text" name="internNum" placeholder="Intern Num..." ngModel>
-  <input type="password" name="password" placeholder="Password..." ngModel>
-  <input type="submit" value="login">
-</form>
+<div class="sign-container">
+  <img class="sign-page-logo" src="assets/logos/pooltapes-color.svg" alt="pooltapes logo">
+
+  <form class="sign-form" [formGroup]="adminLoginForm" (submit)="onLogin()">
+    <input class="sign-form-input" type="text" placeholder="Intern Id..." formControlName="internNum">
+    <input class="sign-form-input" type="password" placeholder="Password..." formControlName="password">
+    <button class="sign-form-submit" type="submit" [disabled]="!adminLoginForm.valid">login</button>
+  </form>
+</div>
+
+<footer class="footer">
+  <p class="footer-text">For users login <a class="link" routerLink="/auth/user/login">click here</a></p>
+</footer>
