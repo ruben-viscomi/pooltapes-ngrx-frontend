@@ -16,3 +16,8 @@
 #account-options-container {
   margin-left: auto;
 }
+
+#header-logout-icon {
+  fill: #fff;
+  height: 14pt;
+}

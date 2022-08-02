@@ -1,2 +1,3 @@
-<h1>{{ pins | json }}</h1>
+<app-carousel *ngIf="pins.length > 0" [pinned]="pins"></app-carousel>
+<!-- <h1>{{ pins | json }}</h1> -->
 <h2>{{ categories | json }}</h2>

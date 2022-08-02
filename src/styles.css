@@ -142,6 +142,14 @@ img, svg {
   -webkit-text-fill-color: transparent;
 }
 
+.icon-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+}
+
 /* Global Forms */
 .sign-form {
   padding: 1em;

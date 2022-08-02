@@ -9,6 +9,8 @@ import { CategoriesResolver, FavoritesResolver, PinsResolver } from 'src/app/res
 import { UserClientComponent } from './user-client.component';
 import { DashComponent } from './components/dash/dash.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
+import { MiniDetailComponent } from './components/mini-detail/mini-detail.component';
 
 const routes: Routes = [
   { path: '', component: UserClientComponent, children: [
@@ -24,7 +26,9 @@ const routes: Routes = [
   declarations: [
     UserClientComponent,
     DashComponent,
-    FavoritesComponent
+    FavoritesComponent,
+    CarouselComponent,
+    MiniDetailComponent
   ],
   imports: [
     CommonModule,
